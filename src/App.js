@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Header from './templates/Header';
+
+//importng screens
+const HomeScreen = lazy(() => import("./screens/HomeScreen"))
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    //Defining BrowserRoutes that uses HTML history apis for syncing b/w UI and url
+    <BrowserRouter>
+
+      {/* Suspense shows loading untill required data is not loaded */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Header ></Header>
+
+        {/* //defining routes */}
+        <Routes>
+
+          {/* Making condition for screens  */}
+          <Route path="/" exact element={<HomeScreen />} />
+
+        </Routes>
+
+      </Suspense>
+
+    </BrowserRouter>
+
   );
 }
 

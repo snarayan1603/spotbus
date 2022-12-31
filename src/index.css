@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+
+/* HomeScreen css */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.center {
+  align-items: center;
+}
+
+
+
+
+
+/* HomeScree css */
+.borderWithbg {
+  background-color: #d4e2f8;
+  border: 1px solid #4285F4;
+}
